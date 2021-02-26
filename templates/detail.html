@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Django Blog - Post</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">Django Blog</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item">
+            {% if user.is_superuser %}
+            <a class="nav-link" href="{% url 'create_post' %}">Create a Post</a>    
+            {% endif %}        
+          </li>
+
+          <li class="nav-item">
+            {% if user.is_authenticated %}           
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            {% endif %}               
+          </li>
+
+          <li class="nav-item">
+            {% if user.is_authenticated %}           
+              <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+            {% else %}
+              <a class="nav-link" href="{% url 'register' %}">Create an Account</a>
+            {% endif %}               
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({% static 'img/post-bg.jpg' %})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{ post.title }}</h1>
+            <!--<h2 class="subheading">Enter Text Here</h2>-->
+            <span class="meta">Posted by
+              <a href="#">{{ post.author }}</a>
+              on {{ post.created_on }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2 class="section-heading">{{ post.title }}</h2>         
+          <p>{{ post.content }}</p>          
+        </div>
+      </div>
+      {% if user.is_superuser %}
+        <a class='btn btn-primary float-right'href="{% url 'delete_post' post.id %}">Delete Post</a>  
+        <a class='btn btn-primary float-right'href="{% url 'edit_post' post.id %}">Edit Post</a>
+      {% endif %}        
+
+<br>
+<br>
+<h2 class="col-lg-8 col-md-10 mx-auto">Comments</h2>
+<br>
+{% if user_comments == None %}
+  <p class="col-lg-8 col-md-10 mx-auto">No Comments</p>
+{% else %}
+  {% for comment in user_comments %}
+    <p class="col-lg-8 col-md-10 mx-auto"><a href="{% url 'user_profile' comment.author %}">{{comment.author}}</a> | {{comment.created_on}}</p>
+    <p class="col-lg-8 col-md-10 mx-auto">{{comment.content}}</p>
+  {% endfor %}
+{% endif %}
+
+  <hr>
+
+<h2 class="col-lg-8 col-md-10 mx-auto">Post a comment</h2>
+<br>
+
+{% if user.is_authenticated %}
+<div class="col-lg-8 col-md-10 mx-auto">
+  <form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="col-lg-8 col-md-10 mx-auto">
+    <input class='btn btn-primary float-right' type="submit" name="Post">
+    <br>
+  </div>
+  </form>
+{% else %}
+  <p class="col-lg-8 col-md-10 mx-auto">Please <a href="{% url 'login' %}">login </a>to post a comment.</p>
+{% endif %}
+
+    </div>
+  </article>
+  
+<br>
+</div>
+<br>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="{% static 'js/clean-blog.min.js' %}"></script>
+
+</body>
+
+</html>

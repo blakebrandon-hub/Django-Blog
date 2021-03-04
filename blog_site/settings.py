@@ -27,7 +27,7 @@ SECRET_KEY = '8wyk*)a6=s9$@wp$qee_u96nhzy534n#pm4r2tw_=*lq3!rqv#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['blake-brandon-django-blog.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['bb-django-blog.herokuapp.com', '127.0.0.1']
 
 
 # Application definition

@@ -33,7 +33,6 @@ class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	email = models.EmailField(blank=True)
 	bio = models.TextField(max_length=500, blank=True)
-	pic = models.ImageField(upload_to=settings.MEDIA_ROOT, blank=True, null=True)
 
 	def __str__(self):
 		return "{}'s Profile".format(self.user)

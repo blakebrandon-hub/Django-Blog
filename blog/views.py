@@ -7,7 +7,8 @@ from django.utils.text import slugify
 
 def index(request):
 	posts = Post.objects.order_by('-created_on')
-	return render(request, 'index.html', {'posts': posts})
+	context = {'posts': posts}
+	return render(request, 'index.html', {})
 
 def detail(request, slug):
     post = Post.objects.get(slug=slug)

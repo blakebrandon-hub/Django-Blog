@@ -82,15 +82,9 @@
         {% if user.is_authenticated %}
           <div class="post-preview">      
             <p class="post-title"><b>Username:</b><br>  {{user.username}}</p>
-            {% if user.profile.pic %}
-          	   <p class="post-title"><b>Profile Picture:</b><br><br> 
-          	   	<img src="{{user.profile.pic.url}}" width="240"> </p>
-            {% endif %}
           	<p class="post-title"><b>Email:</b><br>  {{user.profile.email}}</p>
           	<p class="post-title"><b>Bio:</b><br> {{user.profile.bio}}</p>
             <br>
-
-          	<!--<button><a href="{% url 'edit_profile' %}">Edit Profile</a></button>-->
             <a class="btn btn-primary float-left" href="{% url 'edit_profile' %}">Edit Profile</a>
           </div>
         {% else %}

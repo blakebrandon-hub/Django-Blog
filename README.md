@@ -1,4 +1,4 @@
-# django-blog
+# Django Blog
 A blog created with Django web framework and a bootstrap template.  This blog features full user authentication/authorization, commenting, and editable user profiles.
 <br>
 <br>

@@ -1,5 +1,5 @@
 # Django Blog
-A blog created with Django web framework and a bootstrap template.  This blog features full user authentication/authorization, commenting, and editable user profiles.
+A simple blog created with the Django web framework.  Authentication/authorization, commenting, and editable user profiles.
 <br>
 <br>
 https://bb-django-blog.herokuapp.com/

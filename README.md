@@ -1,5 +1,5 @@
 # Django Blog
-A simple blog created with Django web framework
+A blog created with Django web framework
 <br>
 <br>
 https://bb-django-blog.herokuapp.com/

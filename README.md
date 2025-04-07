@@ -62,3 +62,7 @@ A feature-rich blog application built with Django, offering full user authentica
 
     Open your browser and navigate to `http://127.0.0.1:8000/`
 
+## 📜 License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). See the `LICENSE` file for details.
+

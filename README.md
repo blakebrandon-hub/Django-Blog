@@ -15,7 +15,7 @@ A feature-rich blog application built with Django, offering full user authentica
 ## 🛠️ Tech Stack
 
 - **Backend:** Django, Python
-- **Frontend:** HTML, CSS (Consider mentioning any frameworks like Bootstrap if used)
+- **Frontend:** HTML, CSS, Bootstrap
 - **Database:** SQLite (for development)
 
 ## 🔧 Setup Instructions

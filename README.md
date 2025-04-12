@@ -1,8 +1,8 @@
 # 📝 Django Blog
 
-<img src=https://user-images.githubusercontent.com/50201165/109299508-d5f40300-77fa-11eb-95ed-646879615fb4.jpg width=500>
-
 A feature-rich blog application built with Django, offering full user authentication, commenting capabilities, and editable user profiles.
+
+<img src=https://user-images.githubusercontent.com/50201165/109299508-d5f40300-77fa-11eb-95ed-646879615fb4.jpg width=500>
 
 ## 🌟 Features
 
